@@ -1,3 +1,13 @@
+/*
+* Copyright (c) 2020 Matouš Vrbík
+*
+* URL	https://github.com/TheMates/Diploma-thesis-public
+* 06/2020
+* matousvrbik[at]gmail.com
+*
+* Distributed under CC BY-NC-SA 4.0 licence see LICENCE for details.
+*/
+
 #define NOMINMAX	//Windows.h defines min and max as well as std - so it messes everything up
 #include "Extensions.h"
 #include "VectorExtensions.h"

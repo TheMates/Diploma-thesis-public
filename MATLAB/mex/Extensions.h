@@ -1,4 +1,14 @@
-﻿#ifndef _PARALLELFILTER_EXTENSIONS_H_
+﻿/*
+* Copyright (c) 2020 Matouš Vrbík
+*
+* URL	https://github.com/TheMates/Diploma-thesis-public
+* 06/2020
+* matousvrbik[at]gmail.com
+*
+* Distributed under CC BY-NC-SA 4.0 licence see LICENCE for details.
+*/
+
+#ifndef _PARALLELFILTER_EXTENSIONS_H_
 #define _PARALLELFILTER_EXTENSIONS_H_
 
 #include "simple_fft/fft.h"		//Dmitry Ivanov https://github.com/d1vanov/Simple-FFT

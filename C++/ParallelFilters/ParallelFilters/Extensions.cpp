@@ -5,7 +5,7 @@
 * 06/2020
 * matousvrbik[at]gmail.com
 *
-* Distributed under MIT licence see LICENCE for details.
+* Distributed under CC BY-NC-SA 4.0 licence see LICENCE for details.
 */
 
 #define NOMINMAX	//Windows.h defines min and max as well as std - so it messes everything up

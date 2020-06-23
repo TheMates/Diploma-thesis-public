@@ -1,4 +1,14 @@
-﻿#pragma once
+﻿/*
+* Copyright (c) 2020 Matouš Vrbík
+*
+* URL	https://github.com/TheMates/Diploma-thesis-public
+* 06/2020
+* matousvrbik[at]gmail.com
+*
+* Distributed under CC BY-NC-SA 4.0 licence see LICENCE for details.
+*/
+
+#pragma once
 #ifndef _VECTOR_EXTENSIONS_H_
 #define _VECTOR_EXTENSIONS_H_
 

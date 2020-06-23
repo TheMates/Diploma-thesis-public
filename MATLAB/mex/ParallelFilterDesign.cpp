@@ -1,3 +1,13 @@
+/*
+* Copyright (c) 2020 Matouš Vrbík
+*
+* URL	https://github.com/TheMates/Diploma-thesis-public
+* 06/2020
+* matousvrbik[at]gmail.com
+*
+* Distributed under CC BY-NC-SA 4.0 licence see LICENCE for details.
+*/
+
 #pragma once
 #include "ParallelFilterDesign.h"
 #define _USE_MATH_DEFINES
