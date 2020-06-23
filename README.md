@@ -73,6 +73,9 @@ Numark                      |  Fabia
 :-------------------------:|:-------------------------:
 ![](_readme_images/NumarkResults.PNG)  |  ![](_readme_images/FabiaResults.PNG)
 
+### Licence
+All provided files and algorithms are under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) licence, see [LICENSE file](/LICENSE).
+
 ### Utilized libraries
 - [Cubic spline by Tino Kluge](https://github.com/ttk592/spline/)
 - [Eigen](http://eigen.tuxfamily.org/)
