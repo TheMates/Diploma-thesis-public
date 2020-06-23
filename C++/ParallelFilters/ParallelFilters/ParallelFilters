@@ -1,0 +1,6 @@
+#pragma once
+#include "ParallelFilterDesign.h"
+#include "Extensions.h"
+#include "VectorExtensions.h"
+
+

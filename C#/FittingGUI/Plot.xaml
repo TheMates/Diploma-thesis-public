@@ -1,0 +1,26 @@
+﻿<UserControl x:Class="FittingGUI.Plot"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="600">
+    <Grid>
+        <lvc:CartesianChart Series="{Binding SeriesCollection}" DisableAnimations="True" LegendLocation="Right" Zoom="Xy" MouseDoubleClick="ResetZoom" >
+            <lvc:CartesianChart.AxisY>
+                <lvc:Axis Name="YAxis" Title="Magnitude [dB]" LabelFormatter="{Binding YFormatter}"/>
+            </lvc:CartesianChart.AxisY>
+            <!--<lvc:CartesianChart.AxisX >
+                <lvc:LogarithmicAxis Name="XAxis" Title="Frequency [Hz]" Labels="{Binding Labels}" Base="10"  />
+            </lvc:CartesianChart.AxisX>-->
+            <lvc:CartesianChart.AxisX>
+                <lvc:LogarithmicAxis Name="XAxis" LabelFormatter="{Binding FormatterX}" Base="10." Title="Frequency [Hz]">
+                    <lvc:LogarithmicAxis.Separator>
+                        <lvc:Separator Step="1" StrokeThickness="1" IsEnabled="True"/>
+                    </lvc:LogarithmicAxis.Separator>
+                </lvc:LogarithmicAxis>
+            </lvc:CartesianChart.AxisX>
+        </lvc:CartesianChart>
+    </Grid>
+</UserControl>

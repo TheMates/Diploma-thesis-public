@@ -1,0 +1,84 @@
+﻿<Window x:Class="FittingGUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FittingGUI"
+        mc:Ignorable="d"
+        Title="Fitting GUI" Height="720" Width="1280" MinHeight="720"  MinWidth="720"
+        
+        >
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="210" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        
+
+        <Label   Grid.Column="0" Grid.Row="0" Content="Cross freq" HorizontalAlignment="Left" Margin="5,10" VerticalAlignment="Top"/>
+        <TextBox Grid.Column="0" Grid.Row="0" Name="CrossFreqBox"    Text="{Binding ElementName=CrossFreqSlider, Path=Value, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Right" Margin="10,15,15,0" Height="20" Width="50" VerticalAlignment="Top" />
+        <Slider  Grid.Column="0" Grid.Row="0" Name="CrossFreqSlider" Minimum="300" Maximum="3000" Value="800" Margin="10,40,10,0" Height="20" VerticalAlignment="Top" Thumb.DragCompleted="DragCompleted" ValueChanged="SliderChanged" IsTabStop="False"/>
+
+        <Label   Grid.Column="0" Grid.Row="1" Content="Cross length" HorizontalAlignment="Left" Margin="5,15" VerticalAlignment="Top"/>
+        <TextBox Grid.Column="0" Grid.Row="1" Name="CrossLengthFreqBox"  Text="{Binding ElementName=CrossLengthFreqSlider, Path=Value, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Right" Margin="10,15,15,0" Height="20" Width="50" VerticalAlignment="Top" />
+        <Slider  Grid.Column="0" Grid.Row="1" Name="CrossLengthFreqSlider" Minimum="0" Maximum="200" Value="50" TickFrequency="1" IsSnapToTickEnabled="True" Margin="10,40,10,0" Height="20" VerticalAlignment="Top" Thumb.DragCompleted="DragCompleted" ValueChanged="SliderChanged" IsTabStop="False"/>
+
+        <Label   Grid.Column="0" Grid.Row="2" Content="Fixed N poles" HorizontalAlignment="Left" Margin="5,0" />
+        <CheckBox Grid.Column="0" Grid.Row="2" Name="FixedNPolesCheck" HorizontalAlignment="Left" Margin="85,7,0,0"  VerticalAlignment="Top" IsTabStop="False"  Click="FixedNpolesChange"/>
+        <TextBox Grid.Column="0" Grid.Row="2" Name="FixedPolesBox"  Text="{Binding FixedNPoles, UpdateSourceTrigger=PropertyChanged }" IsEnabled="{Binding ElementName=FixedNPolesCheck,Path= IsChecked}"  TextChanged="FixedPolesBoxTextChanged" HorizontalAlignment="Right" Margin="10,5,15,0" Height="20" Width="50" VerticalAlignment="Top" />
+
+        <Label   Grid.Column="0" Grid.Row="3" Content="Max number of poles" HorizontalAlignment="Left" Margin="5,0" />
+        <TextBox Grid.Column="0" Grid.Row="3" Name="MaxPolesBox"  Text="{Binding MaxPoles, UpdateSourceTrigger=PropertyChanged, Delay=200}"   HorizontalAlignment="Right" Margin="10,5,15,0" Height="20" Width="50" VerticalAlignment="Top" />
+
+
+        <Label   Grid.Column="0" Grid.Row="4" Content="Number of poles low" HorizontalAlignment="Left" Margin="5,10" VerticalAlignment="Top"/>
+        <TextBox Grid.Column="0" Grid.Row="4" Name="NPolesLowBox"  Text="{Binding ElementName=NPolesLowSlider, Path=Value, UpdateSourceTrigger=PropertyChanged}"   HorizontalAlignment="Right" Margin="10,15,15,0" Height="20" Width="50" VerticalAlignment="Top" />
+        <Slider  Grid.Column="0" Grid.Row="4" Name="NPolesLowSlider" Minimum="0" Maximum="{Binding MaxPoles}" Value="36" TickFrequency="1" IsSnapToTickEnabled="True" Margin="10,40,10,0" Height="20" VerticalAlignment="Top" Thumb.DragCompleted="DragCompleted" ValueChanged="SliderChanged" IsTabStop="False"/>
+
+        <Label   Grid.Column="0" Grid.Row="5" Content="Number of poles high" HorizontalAlignment="Left" Margin="5,10" VerticalAlignment="Top"/>
+        <TextBox Grid.Column="0" Grid.Row="5" Name="NPolesHighBox"  Text="{Binding ElementName=NPolesHighSlider, Path=Value, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Right" Margin="10,15,15,0" Height="20" Width="50" VerticalAlignment="Top" />
+        <Slider  Grid.Column="0" Grid.Row="5" Name="NPolesHighSlider" Minimum="0"  Maximum="{Binding MaxPoles}" Value="36" TickFrequency="1" IsSnapToTickEnabled="True" Margin="10,40,10,0" Height="20" VerticalAlignment="Top" Thumb.DragCompleted="DragCompleted" ValueChanged="SliderChanged" IsTabStop="False"/>
+
+        <Label   Grid.Column="0" Grid.Row="6" Content="Lambda low" HorizontalAlignment="Left" Margin="5,10" VerticalAlignment="Top"/>
+        <TextBox Grid.Column="0" Grid.Row="6" Name="LambdaLowBox"  Text="{Binding ElementName=LambdaLowSlider, Path=Value, StringFormat=N4, UpdateSourceTrigger=PropertyChanged,Delay=250}"  HorizontalAlignment="Right" Margin="10,15,15,0" Height="20" Width="50" VerticalAlignment="Top" />
+        <Slider  Grid.Column="0" Grid.Row="6" Name="LambdaLowSlider" Minimum="0.9" Maximum="0.9999" Value="0.986" Margin="10,40,10,0" Height="20" VerticalAlignment="Top" Thumb.DragCompleted="DragCompleted" ValueChanged="SliderChanged" IsTabStop="False"/>
+
+        <Label   Grid.Column="0" Grid.Row="7" Content="Lambda high" HorizontalAlignment="Left" Margin="5,10" VerticalAlignment="Top"/>
+        <TextBox Grid.Column="0" Grid.Row="7" Name="LambdaHighBox"  Text="{Binding ElementName=LambdaHighSlider, Path=Value, UpdateSourceTrigger=PropertyChanged, Delay=250}" HorizontalAlignment="Right" Margin="10,15,15,0" Height="20" Width="50" VerticalAlignment="Top" />
+        <Slider  Grid.Column="0" Grid.Row="7" Name="LambdaHighSlider" Minimum="0.3" Maximum="0.9" Value="0.65" Margin="10,40,10,0" Height="20" VerticalAlignment="Top" Thumb.DragCompleted="DragCompleted" ValueChanged="SliderChanged" IsTabStop="False"/>
+
+        <Label Grid.Column="0" Grid.Row="8" Content="Sample rate" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,10" />
+        <TextBox Grid.Column="0" Grid.Row="8" Height="20" Width="50" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,15,15,0" Text="{Binding Fs,  UpdateSourceTrigger=PropertyChanged}" />
+
+        <Label Grid.Column="0" Grid.Row="8" Content="NFIR" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,35,0,0" />
+        <TextBox Grid.Column="0" Grid.Row="8" Height="20" Width="50" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,40,15,0" Text="{Binding NFIR,  UpdateSourceTrigger=PropertyChanged}" />
+
+        <local:Plot Grid.Column="1" Grid.RowSpan="10" Margin="10" DataContext="{Binding Path=DataContext.MyPlot}" />
+        <Button Name="LoadButton" Content="Load" HorizontalAlignment="Left" Margin="10,125.8,0,0"  Grid.Column="0" Grid.Row="9" VerticalAlignment="Top" Width="75" Click="LoadResponse"/>
+        <Label Grid.Column="0" Grid.Row="9" VerticalAlignment="Top" HorizontalAlignment="Left" Content="Path" Margin="5"/>
+        <TextBox Name="FilePathBox" Grid.Column="0" Grid.Row="9" VerticalAlignment="Top" Margin="40,10,10,0" Text="{Binding FilePath, UpdateSourceTrigger=PropertyChanged}" KeyUp="EnterPressed" />
+        <ListBox Grid.Column="0" Grid.Row="9" Name="FolderContentsListBox" Height="80" Margin="10,29.8,9.6,0" VerticalAlignment="Top" SelectedItem="{Binding ItemSelected, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <CheckBox  Grid.Column="0" Grid.Row="9" Name="UseNAKCheck" IsChecked="{Binding useNAK,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="9,150,0,0" Height="15" Width="110" Content="Use not-a-knot" Click="UseNAKCheckClick"/>
+
+        <Label Grid.Column="0" Grid.Row="9" VerticalAlignment="Top" HorizontalAlignment="Left" Content="Name" Margin="5,172,0,0"/>
+        <TextBox Grid.Column="0" Grid.Row="9" Name="ExportFileNameBox" Text="{Binding ExportFileName, UpdateSourceTrigger=PropertyChanged}"  Height="20" Margin="47,175,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="110"  />
+        <Button Grid.Column="0" Grid.Row="9" Margin="0,175,10,0" Content="Export"  Height="20" HorizontalAlignment="Right" Width="40" VerticalAlignment="Top" Click="ExportCoefficientsToCsv"/>
+
+        <Button Grid.Column="1" Grid.Row="0" Name="InfoBtn" HorizontalAlignment="Right" VerticalAlignment="Top" Width="30" Height="20" Margin="10" Content="Info" Background="GhostWhite" Foreground="DimGray" BorderBrush="DimGray" Click="InfoBtnMessage"/>
+
+    </Grid>
+</Window>
