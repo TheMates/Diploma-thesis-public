@@ -332,7 +332,7 @@ if ~handles.viewOnlyCheck.Value
         [Bm,Am,FIR] = filterDesignMatlab(w,H, freqStart, freqStop, crossFreq, crossLength, nPoles1, nPoles2,lambda1, lambda2,NFIR,ITER,Fs,~nakSpline);
     end
     p = drawPlot(Bm,Am,FIR,w,Fs,H);
-     %vykreslení pólù
+     %vykreslenÃ­ pÃ³lÃ¹
      axes(handles.plot2);
      zplane(p(abs(p)<1));
      if ~isempty(p(abs(p)>=1))
@@ -439,7 +439,7 @@ w = 2*pi*fr/Fs;
 if handles.UseCppCheck.Value
     [Bm,Am,FIR] = filterDesignCpp(w,H, freqStart, freqStop, crossFreq, crossLength, nPoles1, nPoles2,lambda1, lambda2,NFIR,ITER,Fs,natSpline);
 else
-    [Bm,Am,FIR] = filterDesignMatlab(w,H, freqStart, freqStop, crossFreq, crossLength, nPoles1, nPoles2,lambda1, lambda2,NFIR,ITER,Fs,natSpline);
+    [Bm,Am,FIR] = filterDesignMatlab(w,H, freqStart, freqStop, crossFreq, crossLength, nPoles1, nPoles2,lambda1, lambda2,NFIR,ITER,Fs,~natSpline);
 end
     fname = [handles.exportCoeffsBox.String '.mat'];
 
@@ -546,7 +546,7 @@ msgbox({'First enter path to location of stored files with frequency responses. 
     'You can export the coefficients of parallel second-order sections and FIR part of the filter by {\bfexport} button. File will be located at current MATLAB directory.';...
     'Checking {\bfexport parameters} will export all parameters used in the design.';...
     '';'For more information see:';'http://home.mit.bme.hu/~bank/parfilt/';
-    '';'App by Matouš Vrbík';'matousvrbik@gmail.com'},...
+    '';'App by MatouÂš VrbÃ­k';'matousvrbik@gmail.com'},...
     'How to use this app', 'help', Opt);
 
 function NFIRBox_Callback(hObject, eventdata, handles)
